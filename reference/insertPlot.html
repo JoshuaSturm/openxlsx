@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Insert the current plot into a worksheet — insertPlot" />
-<meta property="og:description" content="The current plot is saved to a temporary image file using dev.copy.
+<meta property="og:description" content="The current plot is saved to a temporary image file using dev.copy.  
 This file is then written to the workbook using insertImage." />
 
 
@@ -73,7 +73,7 @@ This file is then written to the workbook using insertImage." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@ This file is then written to the workbook using insertImage." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -113,12 +113,12 @@ This file is then written to the workbook using insertImage." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Insert the current plot into a worksheet</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>insertPlot.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The current plot is saved to a temporary image file using dev.copy.
+    <p>The current plot is saved to a temporary image file using dev.copy.  
 This file is then written to the workbook using insertImage.</p>
     </div>
 
@@ -193,25 +193,22 @@ This file is then written to the workbook using insertImage.</p>
 <span class='kw'>wb</span> <span class='op'>&lt;-</span> <span class='fu'>createWorkbook</span>()
 
 <span class='co'>## Add a worksheet</span>
-<span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"Sheet 1"</span>, gridLines = <span class='fl'>FALSE</span>)
+<span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"Sheet 1"</span>, gridLines = <span class='fl'>FALSE</span>) 
 
 <span class='co'>## create plot objects</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'>ggplot2</span>)
-<span class='kw'>p1</span> <span class='op'>&lt;-</span> <span class='fu'>qplot</span>(<span class='kw'>mpg</span>,
-  data = <span class='kw'>mtcars</span>, geom = <span class='st'>"density"</span>,
-  fill = <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='kw'>gear</span>), alpha = <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span>(<span class='fl'>.5</span>), main = <span class='st'>"Distribution of Gas Mileage"</span>
-)
+<span class='kw'>p1</span> <span class='op'>&lt;-</span> <span class='fu'>qplot</span>(<span class='kw'>mpg</span>, data=<span class='kw'>mtcars</span>, geom=<span class='st'>"density"</span>,
+  fill=<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='kw'>gear</span>), alpha=<span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span>(<span class='fl'>.5</span>), main=<span class='st'>"Distribution of Gas Mileage"</span>)
 <span class='kw'>p2</span> <span class='op'>&lt;-</span> <span class='fu'>qplot</span>(<span class='kw'>age</span>, <span class='kw'>circumference</span>,
-  data = <span class='kw'>Orange</span>, geom = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"point"</span>, <span class='st'>"line"</span>), colour = <span class='kw'>Tree</span>
-)
+  data = <span class='kw'>Orange</span>, geom = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"point"</span>, <span class='st'>"line"</span>), colour = <span class='kw'>Tree</span>)
 
 <span class='co'>## Insert currently displayed plot to sheet 1, row 1, column 1</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>p1</span>) <span class='co'># plot needs to be showing</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>p1</span>) <span class='co'>#plot needs to be showing</span>
 <span class='fu'>insertPlot</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, width = <span class='fl'>5</span>, height = <span class='fl'>3.5</span>, fileType = <span class='st'>"png"</span>, units = <span class='st'>"in"</span>)
 
 <span class='co'>## Insert plot 2</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>p2</span>)
-<span class='fu'>insertPlot</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, xy = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"J"</span>, <span class='fl'>2</span>), width = <span class='fl'>16</span>, height = <span class='fl'>10</span>, fileType = <span class='st'>"png"</span>, units = <span class='st'>"cm"</span>)
+<span class='fu'>insertPlot</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, xy = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"J"</span>, <span class='fl'>2</span>), width = <span class='fl'>16</span>, height = <span class='fl'>10</span>,  fileType = <span class='st'>"png"</span>, units = <span class='st'>"cm"</span>)
 
 <span class='co'>## Save workbook</span>
 <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"insertPlotExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)

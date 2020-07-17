@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a named region.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>createNamedRegion.Rd</code></div>
     </div>
 
@@ -164,33 +164,41 @@
 
 <span class='co'>## specify region</span>
 <span class='fu'>writeData</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, startCol = <span class='fl'>1</span>, startRow = <span class='fl'>1</span>)
-<span class='fu'>createNamedRegion</span>(
-  wb = <span class='kw'>wb</span>,
-  sheet = <span class='fl'>1</span>,
-  name = <span class='st'>"iris"</span>,
-  rows = <span class='fl'>1</span><span class='op'>:</span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>iris</span>) <span class='op'>+</span> <span class='fl'>1</span>),
-  cols = <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='kw'>iris</span>)
-)
+<span class='fu'>createNamedRegion</span>(wb = <span class='kw'>wb</span>,
+                  sheet = <span class='fl'>1</span>,
+                  name = <span class='st'>"iris"</span>,
+                  rows = <span class='fl'>1</span><span class='op'>:</span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>iris</span>)<span class='op'>+</span><span class='fl'>1</span>),
+                  cols = <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='kw'>iris</span>))
 
 
 <span class='co'>## using writeData 'name' argument</span>
 <span class='fu'>writeData</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, name = <span class='st'>"iris2"</span>, startCol = <span class='fl'>10</span>)
 
 <span class='kw'>out_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(fileext = <span class='st'>".xlsx"</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='kw'>out_file</span>, overwrite = <span class='fl'>TRUE</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='kw'>out_file</span>, overwrite = <span class='fl'>TRUE</span>)
 
 <span class='co'>## see named regions</span>
-<span class='fu'>getNamedRegions</span>(<span class='kw'>wb</span>) <span class='co'>## From Workbook object</span>
-<span class='fu'>getNamedRegions</span>(<span class='kw'>out_file</span>) <span class='co'>## From xlsx file</span>
-
+<span class='fu'>getNamedRegions</span>(<span class='kw'>wb</span>) <span class='co'>## From Workbook object</span></div><div class='output co'>#&gt; [1] "iris"  "iris2"
+#&gt; attr(,"sheet")
+#&gt; [1] "Sheet 1" "Sheet 1"
+#&gt; attr(,"position")
+#&gt; [1] "A1:E151" "J1:N151"</div><div class='input'><span class='fu'>getNamedRegions</span>(<span class='kw'>out_file</span>) <span class='co'>## From xlsx file</span></div><div class='output co'>#&gt; <span class='error'>Error in getNamedRegions.default(out_file): File '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpBwikU9/filed1650b67d43.xlsx' does not exist.</span></div><div class='input'>
 <span class='co'>## read named regions</span>
 <span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'>read.xlsx</span>(<span class='kw'>wb</span>, namedRegion = <span class='st'>"iris"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)
-
-<span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'>read.xlsx</span>(<span class='kw'>out_file</span>, namedRegion = <span class='st'>"iris2"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)
-}</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+#&gt; 1          5.1         3.5          1.4         0.2  setosa
+#&gt; 2          4.9         3.0          1.4         0.2  setosa
+#&gt; 3          4.7         3.2          1.3         0.2  setosa
+#&gt; 4          4.6         3.1          1.5         0.2  setosa
+#&gt; 5          5.0         3.6          1.4         0.2  setosa
+#&gt; 6          5.4         3.9          1.7         0.4  setosa</div><div class='input'>
+<span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'>read.xlsx</span>(<span class='kw'>out_file</span>, namedRegion = <span class='st'>"iris2"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in read.xlsx.default(out_file, namedRegion = "iris2"): File does not exist.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+#&gt; 1          5.1         3.5          1.4         0.2  setosa
+#&gt; 2          4.9         3.0          1.4         0.2  setosa
+#&gt; 3          4.7         3.2          1.3         0.2  setosa
+#&gt; 4          4.6         3.1          1.5         0.2  setosa
+#&gt; 5          5.0         3.6          1.4         0.2  setosa
+#&gt; 6          5.4         3.9          1.7         0.4  setosa</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

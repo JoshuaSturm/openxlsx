@@ -73,7 +73,7 @@ Workbook object" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@ Workbook object" />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -113,7 +113,7 @@ Workbook object" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get named regions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>getNamedRegions.Rd</code></div>
     </div>
 
@@ -144,13 +144,11 @@ Workbook object</p>
 
 <span class='co'>## specify region</span>
 <span class='fu'>writeData</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, startCol = <span class='fl'>1</span>, startRow = <span class='fl'>1</span>)
-<span class='fu'>createNamedRegion</span>(
-  wb = <span class='kw'>wb</span>,
-  sheet = <span class='fl'>1</span>,
-  name = <span class='st'>"iris"</span>,
-  rows = <span class='fl'>1</span><span class='op'>:</span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>iris</span>) <span class='op'>+</span> <span class='fl'>1</span>),
-  cols = <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='kw'>iris</span>)
-)
+<span class='fu'>createNamedRegion</span>(wb = <span class='kw'>wb</span>,
+                  sheet = <span class='fl'>1</span>,
+                  name = <span class='st'>"iris"</span>,
+                  rows = <span class='fl'>1</span><span class='op'>:</span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>iris</span>)<span class='op'>+</span><span class='fl'>1</span>),
+                  cols = <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='kw'>iris</span>))
 
 
 <span class='co'>## using writeData 'name' argument to create a named region</span>
@@ -168,8 +166,7 @@ Workbook object</p>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)
 
 <span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'>read.xlsx</span>(<span class='kw'>out_file</span>, namedRegion = <span class='st'>"iris2"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)
-}</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>df</span>)}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

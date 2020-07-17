@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Set page margins, orientation and print scaling</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>pageSetup.Rd</code></div>
     </div>
 
@@ -282,14 +282,14 @@
     <pre class="examples"><div class='input'><span class='kw'>wb</span> <span class='op'>&lt;-</span> <span class='fu'>createWorkbook</span>()
 <span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"S1"</span>)
 <span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"S2"</span>)
-<span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, x = <span class='kw'>iris</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span>, ])
-<span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, <span class='fl'>2</span>, x = <span class='kw'>iris</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span>, ], xy = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"C"</span>, <span class='fl'>5</span>))
+<span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, x = <span class='kw'>iris</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span>,])
+<span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, <span class='fl'>2</span>, x = <span class='kw'>iris</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span>,], xy = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"C"</span>, <span class='fl'>5</span>))
 
 <span class='co'>## landscape page scaled to 50%</span>
 <span class='fu'>pageSetup</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, orientation = <span class='st'>"landscape"</span>, scale = <span class='fl'>50</span>)
 
 <span class='co'>## portrait page scales to 300% with 0.5in left and right margins</span>
-<span class='fu'>pageSetup</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>2</span>, orientation = <span class='st'>"portrait"</span>, scale = <span class='fl'>300</span>, left = <span class='fl'>0.5</span>, right = <span class='fl'>0.5</span>)
+<span class='fu'>pageSetup</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>2</span>, orientation = <span class='st'>"portrait"</span>, scale = <span class='fl'>300</span>, left= <span class='fl'>0.5</span>, right = <span class='fl'>0.5</span>)
 
 
 <span class='co'>## print titles</span>
@@ -301,9 +301,9 @@
 
 <span class='fu'>pageSetup</span>(<span class='kw'>wb</span>, sheet = <span class='st'>"print_title_rows"</span>, printTitleRows = <span class='fl'>1</span>) <span class='co'>## first row</span>
 <span class='fu'>pageSetup</span>(<span class='kw'>wb</span>, sheet = <span class='st'>"print_title_cols"</span>, printTitleCols = <span class='fl'>1</span>, printTitleRows = <span class='fl'>1</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"pageSetupExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
-}</div></pre>
+
+
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"pageSetupExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

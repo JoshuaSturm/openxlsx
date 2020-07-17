@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>write data to an xlsx file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/writexlsx.R'><code>R/writexlsx.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/writexlsx.R'><code>R/writexlsx.R</code></a></small>
     <div class="hidden name"><code>write.xlsx.Rd</code></div>
     </div>
 
@@ -164,7 +164,7 @@
 <p><b>addWorksheet Parameters</b></p><ul>
 <li><p><b>sheetName</b> Name of the worksheet</p></li>
 <li><p><b>gridLines</b> A logical. If <code>FALSE</code>, the worksheet grid lines will be hidden.</p></li>
-<li><p><b>tabColour</b> Colour of the worksheet tab. A valid colour (belonging to colours())
+<li><p><b>tabColour</b> Colour of the worksheet tab. A valid colour (belonging to colours()) 
   or a valid hex colour beginning with "#".</p></li>
 <li><p><b>zoom</b> A numeric between 10 and 400. Worksheet zoom level as a percentage.</p></li>
 </ul>
@@ -172,7 +172,7 @@
 <p><b>writeData/writeDataTable Parameters</b></p><ul>
 <li><p><b>startCol</b> A vector specifying the starting column(s) to write df</p></li>
 <li><p><b>startRow</b> A vector specifying the starting row(s) to write df</p></li>
-<li><p><b>xy</b> An alternative to specifying startCol and startRow individually.
+<li><p><b>xy</b> An alternative to specifying startCol and startRow individually. 
  A vector of the form c(startCol, startRow)</p></li>
 <li><p><b>colNames or col.names</b> If <code>TRUE</code>, column names of x are written.</p></li>
 <li><p><b>rowNames or row.names</b> If <code>TRUE</code>, row names of x are written.</p></li>
@@ -218,36 +218,23 @@ styled as dates and datetimes respectively.</p>
     <pre class="examples"><div class='input'>
 <span class='co'>## write to working directory</span>
 <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='st'>"openxlsx.borderColour"</span> = <span class='st'>"#4F80BD"</span>) <span class='co'>## set default border colour</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>write.xlsx</span>(<span class='kw'>iris</span>, file = <span class='st'>"writeXLSX1.xlsx"</span>, colNames = <span class='fl'>TRUE</span>, borders = <span class='st'>"columns"</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>write.xlsx</span>(<span class='kw'>iris</span>, file = <span class='st'>"writeXLSX1.xlsx"</span>, colNames = <span class='fl'>TRUE</span>, borders = <span class='st'>"columns"</span>)
 <span class='fu'>write.xlsx</span>(<span class='kw'>iris</span>, file = <span class='st'>"writeXLSX2.xlsx"</span>, colNames = <span class='fl'>TRUE</span>, borders = <span class='st'>"surrounding"</span>)
-}
 
 
-<span class='kw'>hs</span> <span class='op'>&lt;-</span> <span class='fu'>createStyle</span>(
-  textDecoration = <span class='st'>"BOLD"</span>, fontColour = <span class='st'>"#FFFFFF"</span>, fontSize = <span class='fl'>12</span>,
-  fontName = <span class='st'>"Arial Narrow"</span>, fgFill = <span class='st'>"#4F80BD"</span>
-)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>write.xlsx</span>(<span class='kw'>iris</span>,
-  file = <span class='st'>"writeXLSX3.xlsx"</span>,
-  colNames = <span class='fl'>TRUE</span>, borders = <span class='st'>"rows"</span>, headerStyle = <span class='kw'>hs</span>
-)
-}
+<span class='kw'>hs</span> <span class='op'>&lt;-</span> <span class='fu'>createStyle</span>(textDecoration = <span class='st'>"BOLD"</span>, fontColour = <span class='st'>"#FFFFFF"</span>, fontSize=<span class='fl'>12</span>,
+                  fontName=<span class='st'>"Arial Narrow"</span>, fgFill = <span class='st'>"#4F80BD"</span>)
+
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>write.xlsx</span>(<span class='kw'>iris</span>, file = <span class='st'>"writeXLSX3.xlsx"</span>, 
+                     colNames = <span class='fl'>TRUE</span>, borders = <span class='st'>"rows"</span>, headerStyle = <span class='kw'>hs</span>)
 
 <span class='co'>## Lists elements are written to individual worksheets, using list names as sheet names if available</span>
 <span class='kw'>l</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='st'>"IRIS"</span> = <span class='kw'>iris</span>, <span class='st'>"MTCATS"</span> = <span class='kw'>mtcars</span>, <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='fl'>1000</span>), ncol = <span class='fl'>5</span>))
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>write.xlsx</span>(<span class='kw'>l</span>, <span class='st'>"writeList1.xlsx"</span>, colWidths = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='st'>"auto"</span>, <span class='st'>"auto"</span>))
-}
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>write.xlsx</span>(<span class='kw'>l</span>, <span class='st'>"writeList1.xlsx"</span>, colWidths = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='st'>"auto"</span>, <span class='st'>"auto"</span>))
 
 <span class='co'>## different sheets can be given different parameters</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>write.xlsx</span>(<span class='kw'>l</span>, <span class='st'>"writeList2.xlsx"</span>,
-  startCol = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>), startRow = <span class='fl'>2</span>,
-  asTable = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>), withFilter = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>)
-)
-}
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>write.xlsx</span>(<span class='kw'>l</span>, <span class='st'>"writeList2.xlsx"</span>, startCol = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>), startRow = <span class='fl'>2</span>,
+           asTable = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>), withFilter = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>))
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

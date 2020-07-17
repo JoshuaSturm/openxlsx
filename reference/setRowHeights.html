@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Set worksheet row heights</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>setRowHeights.Rd</code></div>
     </div>
 
@@ -155,18 +155,16 @@
 <span class='kw'>wb</span> <span class='op'>&lt;-</span> <span class='fu'>createWorkbook</span>()
 
 <span class='co'>## Add a worksheet</span>
-<span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"Sheet 1"</span>)
+<span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"Sheet 1"</span>) 
 
 <span class='co'>## set row heights</span>
-<span class='fu'>setRowHeights</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, rows = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>, <span class='fl'>22</span>, <span class='fl'>2</span>, <span class='fl'>19</span>), heights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>24</span>, <span class='fl'>28</span>, <span class='fl'>32</span>, <span class='fl'>42</span>, <span class='fl'>33</span>))
+<span class='fu'>setRowHeights</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, rows = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>22</span>,<span class='fl'>2</span>,<span class='fl'>19</span>), heights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>24</span>,<span class='fl'>28</span>,<span class='fl'>32</span>,<span class='fl'>42</span>,<span class='fl'>33</span>))
 
 <span class='co'>## overwrite row 1 height</span>
 <span class='fu'>setRowHeights</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, rows = <span class='fl'>1</span>, heights = <span class='fl'>40</span>)
 
 <span class='co'>## Save workbook</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"setRowHeightsExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
-}</div></pre>
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"setRowHeightsExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

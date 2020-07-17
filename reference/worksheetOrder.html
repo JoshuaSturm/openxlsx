@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Order of worksheets in xlsx file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>worksheetOrder.Rd</code></div>
     </div>
 
@@ -154,15 +154,12 @@ shuffles the order when writing to file.</p>
 <span class='fu'>addWorksheet</span>(wb = <span class='kw'>wb</span>, sheetName = <span class='st'>"Sheet 3"</span>, gridLines = <span class='fl'>FALSE</span>)
 <span class='fu'>writeData</span>(wb = <span class='kw'>wb</span>, sheet = <span class='fl'>3</span>, x = <span class='kw'>Formaldehyde</span>)
 
-<span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>)</div><div class='output co'>#&gt; [1] 1 2 3</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>wb</span>)</div><div class='output co'>#&gt; [1] "Sheet 1"          "mtcars (Sheet 2)" "Sheet 3"         </div><div class='input'><span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>2</span>) <span class='co'># switch position of sheets 2 &amp; 3</span>
+<span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>)</div><div class='output co'>#&gt; [1] 1 2 3</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>wb</span>)</div><div class='output co'>#&gt; [1] "Sheet 1"          "mtcars (Sheet 2)" "Sheet 3"         </div><div class='input'><span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>2</span>) <span class='co'># switch position of sheets 2 &amp; 3 </span>
 <span class='fu'>writeData</span>(<span class='kw'>wb</span>, <span class='fl'>2</span>, <span class='st'>'This is still the "mtcars" worksheet'</span>, startCol = <span class='fl'>15</span>)
-<span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>)</div><div class='output co'>#&gt; [1] 1 3 2</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>wb</span>) <span class='co'>## ordering within workbook is not changed</span></div><div class='output co'>#&gt; [1] "Sheet 1"          "mtcars (Sheet 2)" "Sheet 3"         </div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"worksheetOrderExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
-}
-<span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>1</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"worksheetOrderExample2.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
-}</div></pre>
+<span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>)</div><div class='output co'>#&gt; [1] 1 3 2</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>wb</span>)  <span class='co'>## ordering within workbook is not changed</span></div><div class='output co'>#&gt; [1] "Sheet 1"          "mtcars (Sheet 2)" "Sheet 3"         </div><div class='input'>
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"worksheetOrderExample.xlsx"</span>,  overwrite = <span class='fl'>TRUE</span>)
+<span class='fu'>worksheetOrder</span>(<span class='kw'>wb</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>1</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"worksheetOrderExample2.xlsx"</span>,  overwrite = <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

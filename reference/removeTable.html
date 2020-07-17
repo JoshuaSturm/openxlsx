@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">openxlsx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.2.0</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ycphs/openxlsx/">
+  <a href="https://github.com/joshuasturm/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Remove an Excel table in a workbook</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>removeTable.Rd</code></div>
     </div>
 
@@ -160,17 +160,14 @@
 <span class='co'>## removeTable() deletes table object and all data</span>
 <span class='fu'>getTables</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "iris"   "mtcars"
 #&gt; attr(,"refs")
-#&gt; [1] "A1:E151" "J1:T33" </div><div class='input'><span class='fu'>removeTable</span>(wb = <span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, table = <span class='st'>"iris"</span>)
-<span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, tableName = <span class='st'>"iris"</span>, startCol = <span class='fl'>1</span>)
+#&gt; [1] "A1:E151" "J1:T33" </div><div class='input'><span class='fu'>removeTable</span>(wb = <span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, table = <span class='st'>"iris"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in removeTable(wb = wb, sheet = 1, table = "iris"): object 'hidden' not found</span></div><div class='input'><span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, tableName = <span class='st'>"iris"</span>, startCol = <span class='fl'>1</span>)
 
 <span class='fu'>getTables</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "mtcars" "iris"  
 #&gt; attr(,"refs")
-#&gt; [1] "J1:T33"  "A1:E151"</div><div class='input'><span class='fu'>removeTable</span>(wb = <span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, table = <span class='st'>"iris"</span>)
-<span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, tableName = <span class='st'>"iris"</span>, startCol = <span class='fl'>1</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(wb = <span class='kw'>wb</span>, file = <span class='st'>"removeTableExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
-}
-</div></pre>
+#&gt; [1] "J1:T33"  "A1:E151"</div><div class='input'><span class='fu'>removeTable</span>(wb = <span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, table = <span class='st'>"iris"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in removeTable(wb = wb, sheet = 1, table = "iris"): object 'hidden' not found</span></div><div class='input'><span class='fu'>writeDataTable</span>(<span class='kw'>wb</span>, sheet = <span class='fl'>1</span>, x = <span class='kw'>iris</span>, tableName = <span class='st'>"iris"</span>, startCol = <span class='fl'>1</span>)
+
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(wb = <span class='kw'>wb</span>, file = <span class='st'>"removeTableExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
+ </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

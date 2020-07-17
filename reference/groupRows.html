@@ -120,7 +120,7 @@
     <p>Group a selection of rows</p>
     </div>
 
-    <pre class="usage"><span class='fu'>groupRows</span>(<span class='kw'>wb</span>, <span class='kw'>sheet</span>, <span class='kw'>rows</span>, hidden = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>groupRows</span>(<span class='no'>wb</span>, <span class='no'>sheet</span>, <span class='no'>rows</span>, <span class='kw'>hidden</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,29 +139,26 @@
     </tr>
     <tr>
       <th>hidden</th>
-      <td><p>Logical vector. If TRUE the grouped columns are hidden. Defaults to false</p></td>
+      <td><p>Logical vector. If TRUE the grouped columns are hidden. Defaults to FALSE</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>groupColumns</code></p></div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Joshua Sturm</p>
+    <div class='dont-index'><p><code><a href='groupColumns.html'>groupColumns</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Create a new workbook</span>
-<span class='kw'>wb</span> <span class='op'>&lt;-</span> <span class='fu'>createWorkbook</span>()
+<span class='no'>wb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='createWorkbook.html'>createWorkbook</a></span>()
 
 <span class='co'>## Add a worksheet</span>
-<span class='fu'>addWorksheet</span>(<span class='kw'>wb</span>, <span class='st'>"Sheet 1"</span>) 
+<span class='fu'><a href='addWorksheet.html'>addWorksheet</a></span>(<span class='no'>wb</span>, <span class='st'>"Sheet 1"</span>)
 
 <span class='co'>## Group first two rows</span>
-<span class='fu'>groupRows</span>(<span class='kw'>wb</span>, <span class='fl'>1</span>, rows = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, hidden = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in wb$groupRows(sheet, rows, hidden, levels): object 'wb' not found</span></div><div class='input'>
+<span class='fu'>groupRows</span>(<span class='no'>wb</span>, <span class='fl'>1</span>, <span class='kw'>rows</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>hidden</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in wb$groupRows(sheet, rows, hidden, levels): object 'wb' not found</span></div><div class='input'>
 
 <span class='co'>## Save workbook</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='st'>"groupRowsExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)</div></pre>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'><a href='saveWorkbook.html'>saveWorkbook</a></span>(<span class='no'>wb</span>, <span class='st'>"groupRowsExample.xlsx"</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -177,7 +174,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

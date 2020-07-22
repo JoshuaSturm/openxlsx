@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Load an existing .xlsx file — loadWorkbook" />
-<meta property="og:description" content="loadWorkbook returns a workbook object conserving styles and 
+<meta property="og:description" content="loadWorkbook returns a workbook object conserving styles and
 formatting of the original .xlsx file." />
 
 
@@ -118,7 +118,7 @@ formatting of the original .xlsx file." />
     </div>
 
     <div class="ref-description">
-    <p>loadWorkbook returns a workbook object conserving styles and 
+    <p>loadWorkbook returns a workbook object conserving styles and
 formatting of the original .xlsx file.</p>
     </div>
 
@@ -150,10 +150,12 @@ formatting of the original .xlsx file.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## load existing workbook from package folder</span>
-<span class='no'>wb</span> <span class='kw'>&lt;-</span> <span class='fu'>loadWorkbook</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>,<span class='st'>"loadExample.xlsx"</span>, <span class='kw'>package</span><span class='kw'>=</span> <span class='st'>"openxlsx"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in loadworksheets(wb = wb, styleObjects = styleObjects, xmlFiles = worksheetsXML,     is_chart_sheet = is_chart_sheet): logical subsetting requires vectors of identical size</span></div><div class='input'><span class='fu'><a href='names.html'>names</a></span>(<span class='no'>wb</span>)  <span class='co'>#list worksheets</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'wb' not found</span></div><div class='input'><span class='no'>wb</span> <span class='co'>## view object</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'wb' not found</span></div><div class='input'><span class='co'>## Add a worksheet</span>
+<span class='no'>wb</span> <span class='kw'>&lt;-</span> <span class='fu'>loadWorkbook</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"loadExample.xlsx"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"openxlsx"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in loadworksheets(wb = wb, styleObjects = styleObjects, xmlFiles = worksheetsXML,     is_chart_sheet = is_chart_sheet): logical subsetting requires vectors of identical size</span></div><div class='input'><span class='fu'><a href='names.html'>names</a></span>(<span class='no'>wb</span>) <span class='co'># list worksheets</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'wb' not found</span></div><div class='input'><span class='no'>wb</span> <span class='co'>## view object</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'wb' not found</span></div><div class='input'><span class='co'>## Add a worksheet</span>
 <span class='fu'><a href='addWorksheet.html'>addWorksheet</a></span>(<span class='no'>wb</span>, <span class='st'>"A new worksheet"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in "Workbook" %in% class(wb): object 'wb' not found</span></div><div class='input'>
 <span class='co'>## Save workbook</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'><a href='saveWorkbook.html'>saveWorkbook</a></span>(<span class='no'>wb</span>, <span class='st'>"loadExample.xlsx"</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='saveWorkbook.html'>saveWorkbook</a></span>(<span class='no'>wb</span>, <span class='st'>"loadExample.xlsx"</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

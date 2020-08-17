@@ -88,13 +88,28 @@ Replace a style object" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Formatting.html">Formating with xlsx</a>
+    </li>
+    <li>
+      <a href="../articles/Introduction.html">Introduction</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/joshuasturm/openxlsx/">
+  <a href="https://github.com/ycphs/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -113,7 +128,7 @@ Replace a style object" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Replace an existing cell style</h1>
-    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>replaceStyle.Rd</code></div>
     </div>
 
@@ -122,7 +137,7 @@ Replace a style object" />
 <p>Replace a style object</p>
     </div>
 
-    <pre class="usage"><span class='fu'>replaceStyle</span>(<span class='no'>wb</span>, <span class='no'>index</span>, <span class='no'>newStyle</span>)</pre>
+    <pre class="usage"><span class='fu'>replaceStyle</span>(<span class='kw'>wb</span>, <span class='kw'>index</span>, <span class='kw'>newStyle</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,22 +159,29 @@ Replace a style object" />
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='getStyles.html'>getStyles</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Alexander Walker</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>## load a workbook</span>
-<span class='no'>wb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='loadWorkbook.html'>loadWorkbook</a></span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"loadExample.xlsx"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"openxlsx"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in loadworksheets(wb = wb, styleObjects = styleObjects, xmlFiles = worksheetsXML,     is_chart_sheet = is_chart_sheet): logical subsetting requires vectors of identical size</span></div><div class='input'>
+<span class='kw'>wb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='loadWorkbook.html'>loadWorkbook</a></span>(file = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"loadExample.xlsx"</span>, package = <span class='st'>"openxlsx"</span>))
+
 <span class='co'>## create a new style and replace style 2</span>
 
-<span class='no'>newStyle</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='createStyle.html'>createStyle</a></span>(<span class='kw'>fgFill</span> <span class='kw'>=</span> <span class='st'>"#00FF00"</span>)
+<span class='kw'>newStyle</span> <span class='op'>&lt;-</span> <span class='fu'><a href='createStyle.html'>createStyle</a></span>(fgFill = <span class='st'>"#00FF00"</span>)
 
 <span class='co'>## replace style 2</span>
-<span class='fu'><a href='getStyles.html'>getStyles</a></span>(<span class='no'>wb</span>)[<span class='fl'>1</span>:<span class='fl'>3</span>] <span class='co'>## prints styles</span></div><div class='output co'>#&gt; [[1]]
+<span class='fu'><a href='getStyles.html'>getStyles</a></span>(<span class='kw'>wb</span>)[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>] <span class='co'>## prints styles</span></div><div class='output co'>#&gt; [[1]]
 #&gt; A custom cell style. 
 #&gt; 
 #&gt;  Cell formatting: GENERAL 
-#&gt;  Cell borders: Top: thin, Left: thin 
-#&gt;  Cell border colours: #000000, #000000 
+#&gt;  Font name: Calibri 
+#&gt;  Font size: 11 
+#&gt;  Font colour: 10 
+#&gt;  Font decoration: UNDERLINE 
+#&gt;  Cell horz. align: left 
 #&gt;  
 #&gt; 
 #&gt; 
@@ -167,24 +189,21 @@ Replace a style object" />
 #&gt; A custom cell style. 
 #&gt; 
 #&gt;  Cell formatting: GENERAL 
-#&gt;  Cell borders: Left: thin 
-#&gt;  Cell border colours: #000000 
-#&gt;  
+#&gt;  Cell horz. align: center 
+#&gt;  wraptext: TRUE 
 #&gt; 
 #&gt; 
 #&gt; [[3]]
 #&gt; A custom cell style. 
 #&gt; 
 #&gt;  Cell formatting: GENERAL 
-#&gt;  Cell borders: Bottom: thin, Left: thin 
-#&gt;  Cell border colours: #000000, #000000 
 #&gt;  
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>replaceStyle</span>(<span class='no'>wb</span>, <span class='fl'>2</span>, <span class='kw'>newStyle</span> <span class='kw'>=</span> <span class='no'>newStyle</span>)
+#&gt; </div><div class='input'><span class='fu'>replaceStyle</span>(<span class='kw'>wb</span>, <span class='fl'>2</span>, newStyle = <span class='kw'>newStyle</span>)
 
 <span class='co'>## Save workbook</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='saveWorkbook.html'>saveWorkbook</a></span>(<span class='no'>wb</span>, <span class='st'>"replaceStyleExample.xlsx"</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='saveWorkbook.html'>saveWorkbook</a></span>(<span class='kw'>wb</span>, <span class='st'>"replaceStyleExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -201,7 +220,7 @@ Replace a style object" />
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

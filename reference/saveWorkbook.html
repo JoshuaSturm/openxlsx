@@ -87,13 +87,28 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Formatting.html">Formating with xlsx</a>
+    </li>
+    <li>
+      <a href="../articles/Introduction.html">Introduction</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/joshuasturm/openxlsx/">
+  <a href="https://github.com/ycphs/openxlsx/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +127,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>save Workbook to file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/joshuasturm/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/ycphs/openxlsx/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
     <div class="hidden name"><code>saveWorkbook.Rd</code></div>
     </div>
 
@@ -120,7 +135,7 @@
     <p>save a Workbook object to file</p>
     </div>
 
-    <pre class="usage"><span class='fu'>saveWorkbook</span>(<span class='no'>wb</span>, <span class='no'>file</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, <span class='kw'>file</span>, overwrite = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,15 +161,18 @@
 <p><code><a href='loadWorkbook.html'>loadWorkbook</a></code></p>
 <p><code><a href='writeData.html'>writeData</a></code></p>
 <p><code><a href='writeDataTable.html'>writeDataTable</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Alexander Walker</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Create a new workbook and add a worksheet</span>
-<span class='no'>wb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='createWorkbook.html'>createWorkbook</a></span>(<span class='st'>"Creator of workbook"</span>)
-<span class='fu'><a href='addWorksheet.html'>addWorksheet</a></span>(<span class='no'>wb</span>, <span class='kw'>sheetName</span> <span class='kw'>=</span> <span class='st'>"My first worksheet"</span>)
+<span class='kw'>wb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='createWorkbook.html'>createWorkbook</a></span>(<span class='st'>"Creator of workbook"</span>)
+<span class='fu'><a href='addWorksheet.html'>addWorksheet</a></span>(<span class='kw'>wb</span>, sheetName = <span class='st'>"My first worksheet"</span>)
 
 <span class='co'>## Save workbook to working directory</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>saveWorkbook</span>(<span class='no'>wb</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"saveWorkbookExample.xlsx"</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>saveWorkbook</span>(<span class='kw'>wb</span>, file = <span class='st'>"saveWorkbookExample.xlsx"</span>, overwrite = <span class='fl'>TRUE</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -171,7 +189,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
